@@ -1,0 +1,299 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: mmalabugin-ru
+  namespace: default
+  annotations:
+    kubernetes.io/ingress.class: "traefik"
+spec:
+  rules:
+    - host: mmalabugin.ru
+      http:
+        paths:
+          # ===== MAIN PAGE =====
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: main-page
+                port:
+                  number: 80
+
+          # ===== FRONTEND PROJECTS =====
+          - path: /react-modal
+            pathType: Prefix
+            backend:
+              service:
+                name: react-modal
+                port:
+                  number: 80
+
+          - path: /DayOnEarth
+            pathType: Prefix
+            backend:
+              service:
+                name: day-on-earth
+                port:
+                  number: 80
+
+          - path: /react-counter
+            pathType: Prefix
+            backend:
+              service:
+                name: react-counter
+                port:
+                  number: 80
+
+          - path: /react-quiz
+            pathType: Prefix
+            backend:
+              service:
+                name: react-quiz
+                port:
+                  number: 80
+
+          - path: /react-todo
+            pathType: Prefix
+            backend:
+              service:
+                name: react-todo
+                port:
+                  number: 80
+
+          - path: /SimpleOmelleteRecipe
+            pathType: Prefix
+            backend:
+              service:
+                name: recipe-page-main
+                port:
+                  number: 80
+
+          - path: /BlogPreviewCard
+            pathType: Prefix
+            backend:
+              service:
+                name: blog-preview-card-main
+                port:
+                  number: 80
+
+          - path: /FAQAccordion
+            pathType: Prefix
+            backend:
+              service:
+                name: faq-accordion-main
+                port:
+                  number: 80
+
+          - path: /ResultsSummaryComponent
+            pathType: Prefix
+            backend:
+              service:
+                name: results-summary-component-main
+                port:
+                  number: 80
+
+          - path: /ProductPreviewCardComponent
+            pathType: Prefix
+            backend:
+              service:
+                name: product-preview-card-component-main
+                port:
+                  number: 80
+
+          - path: /InteractiveRatingComponent
+            pathType: Prefix
+            backend:
+              service:
+                name: interactive-rating-component-main
+                port:
+                  number: 80
+
+          - path: /QRCodeComponent
+            pathType: Prefix
+            backend:
+              service:
+                name: qr-code-component-main
+                port:
+                  number: 80
+
+          - path: /NFTPreviewCardComponent
+            pathType: Prefix
+            backend:
+              service:
+                name: nft-preview-card-component-main
+                port:
+                  number: 80
+
+          - path: /OrderSummaryComponent
+            pathType: Prefix
+            backend:
+              service:
+                name: order-summary-component
+                port:
+                  number: 80
+
+          - path: /react-redux
+            pathType: Prefix
+            backend:
+              service:
+                name: react-redux
+                port:
+                  number: 80
+
+          - path: /StatsPreviewCardComponent
+            pathType: Prefix
+            backend:
+              service:
+                name: stats-preview-card-component
+                port:
+                  number: 80
+
+          - path: /3ColumnPreviewCardComponent
+            pathType: Prefix
+            backend:
+              service:
+                name: three-column-preview-card-component
+                port:
+                  number: 80
+
+          - path: /ProfileCardComponent
+            pathType: Prefix
+            backend:
+              service:
+                name: profile-card-component
+                port:
+                  number: 80
+
+          - path: /SocialProofSection
+            pathType: Prefix
+            backend:
+              service:
+                name: social-proof-section
+                port:
+                  number: 80
+
+          - path: /SinglePriceGridComponent
+            pathType: Prefix
+            backend:
+              service:
+                name: single-price-grid-component
+                port:
+                  number: 80
+
+          - path: /FourCardFeatureSection
+            pathType: Prefix
+            backend:
+              service:
+                name: four-card-feature-section
+                port:
+                  number: 80
+
+          - path: /HuddleLandingPageWithSingleIntroductorySection
+            pathType: Prefix
+            backend:
+              service:
+                name: huddle-landing-page-with-single-introductory-section
+                port:
+                  number: 80
+
+          - path: /BaseApparelComingSoon
+            pathType: Prefix
+            backend:
+              service:
+                name: base-apparel-coming-soon
+                port:
+                  number: 80
+
+          - path: /ArticlePreviewComponent
+            pathType: Prefix
+            backend:
+              service:
+                name: article-preview-component
+                port:
+                  number: 80
+
+          - path: /SaasLandingPage
+            pathType: Prefix
+            backend:
+              service:
+                name: saas-landing-page
+                port:
+                  number: 80
+
+          - path: /PingComingSoonPage
+            pathType: Prefix
+            backend:
+              service:
+                name: ping-coming-soon-page
+                port:
+                  number: 80
+
+          - path: /SocialLinksProfile
+            pathType: Prefix
+            backend:
+              service:
+                name: social-links-profile-main
+                port:
+                  number: 80
+
+          - path: /contact-book
+            pathType: Prefix
+            backend:
+              service:
+                name: contact-book
+                port:
+                  number: 80
+
+          - path: /IntroComponentWithSignupForm
+            pathType: Prefix
+            backend:
+              service:
+                name: intro-component-with-signup-form
+                port:
+                  number: 80
+
+          # ===== API =====
+          - path: /api/cartoons
+            pathType: Prefix
+            backend:
+              service:
+                name: cartoonapi-service
+                port:
+                  number: 80
+
+          - path: /api/send
+            pathType: Prefix
+            backend:
+              service:
+                name: mailer-service
+                port:
+                  number: 80
+
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: mongo-auth-service
+                port:
+                  number: 80
+
+          - path: /api/auth
+            pathType: Prefix
+            backend:
+              service:
+                name: mongo-auth-service
+                port:
+                  number: 80
+
+          - path: /api/users
+            pathType: Prefix
+            backend:
+              service:
+                name: mongo-auth-service
+                port:
+                  number: 80
+
+  tls:
+    - hosts:
+        - mmalabugin.ru
+      secretName: main-page-tls
