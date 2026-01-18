@@ -268,8 +268,6 @@ spec:
                 name: mailer-service
                 port:
                   number: 80
-            annotations:
-              traefik.ingress.kubernetes.io/router.middlewares: default-mailer-auth@kubernetescrd
 
           - path: /api
             pathType: Prefix
