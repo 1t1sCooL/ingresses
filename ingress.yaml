@@ -251,6 +251,13 @@ spec:
                 name: intro-component-with-signup-form
                 port:
                   number: 80
+          - path: /IntroComponentWithSignupForm/send
+            pathType: Prefix
+            backend:
+              service:
+                name: intro-component-with-signup-form
+                port:
+                  number: 80
 
           # ===== API =====
           - path: /api/cartoons
