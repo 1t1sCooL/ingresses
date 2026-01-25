@@ -203,6 +203,13 @@ spec:
                 name: base-apparel-coming-soon
                 port:
                   number: 80
+          - path: /BaseApparelComingSoon/send
+            pathType: Prefix
+            backend:
+              service:
+                name: base-apparel-coming-soon
+                port:
+                  number: 80
 
           - path: /ArticlePreviewComponent
             pathType: Prefix
