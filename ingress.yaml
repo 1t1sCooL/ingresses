@@ -266,6 +266,14 @@ spec:
                 port:
                   number: 80
 
+          - path: /filmograph
+            pathType: Prefix
+            backend:
+              service:
+                name: filmograph-service
+                port:
+                  number: 80
+
           # ===== API =====
           - path: /api/cartoons
             pathType: Prefix
@@ -304,6 +312,14 @@ spec:
             backend:
               service:
                 name: mongo-auth-service
+                port:
+                  number: 80
+
+          - path: /api/filmograph
+            pathType: Prefix
+            backend:
+              service:
+                name: filmograph-service
                 port:
                   number: 80
 
