@@ -271,7 +271,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: filmograph
+                name: filmograph-fe
                 port:
                   number: 80
 
