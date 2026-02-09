@@ -266,11 +266,12 @@ spec:
                 port:
                   number: 80
 
+          # Filmograph: фронт (Next.js) и API (FastAPI) — разные сервисы
           - path: /filmograph
             pathType: Prefix
             backend:
               service:
-                name: filmograph-service
+                name: filmograph
                 port:
                   number: 80
 
