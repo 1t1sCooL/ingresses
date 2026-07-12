@@ -237,6 +237,14 @@ spec:
                 port:
                   number: 80
 
+          - path: /FyloDataStorageComponent
+            pathType: Prefix
+            backend:
+              service:
+                name: fylo-data-storage-component
+                port:
+                  number: 80
+
           - path: /SaasLandingPage
             pathType: Prefix
             backend:
