@@ -316,6 +316,14 @@ spec:
                 port:
                   number: 80
 
+          - path: /SunnysideAgencyLandingPage
+            pathType: Prefix
+            backend:
+              service:
+                name: sunnyside-agency-landing-page-main
+                port:
+                  number: 80
+
           # Lavka (mmalabugin.ru/lavka): отдельный Ingress в ns lavka — ingress-mmalabugin.yaml
 
           # Filmograph: фронт (Next.js) и API (FastAPI) — разные сервисы
