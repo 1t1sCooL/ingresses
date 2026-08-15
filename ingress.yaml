@@ -324,6 +324,14 @@ spec:
                 port:
                   number: 80
 
+          - path: /ClipboardLandingPage
+            pathType: Prefix
+            backend:
+              service:
+                name: clipboard-landing-page-master
+                port:
+                  number: 80
+
           # Lavka (mmalabugin.ru/lavka): отдельный Ingress в ns lavka — ingress-mmalabugin.yaml
 
           # Filmograph: фронт (Next.js) и API (FastAPI) — разные сервисы
