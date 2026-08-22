@@ -332,6 +332,14 @@ spec:
                 port:
                   number: 80
 
+          - path: /HotelBookingConfirmationPage
+            pathType: Prefix
+            backend:
+              service:
+                name: hotel-booking-confirmation-page-main
+                port:
+                  number: 80
+
           # Lavka (mmalabugin.ru/lavka): отдельный Ingress в ns lavka — ingress-mmalabugin.yaml
 
           # Filmograph: фронт (Next.js) и API (FastAPI) — разные сервисы
