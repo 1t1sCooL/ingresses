@@ -340,6 +340,14 @@ spec:
                 port:
                   number: 80
 
+          - path: /FyloDarkThemeLandingPage
+            pathType: Prefix
+            backend:
+              service:
+                name: fylo-dark-theme-landing-page-master
+                port:
+                  number: 80
+
           # Lavka (mmalabugin.ru/lavka): отдельный Ingress в ns lavka — ingress-mmalabugin.yaml
 
           # Filmograph: фронт (Next.js) и API (FastAPI) — разные сервисы
