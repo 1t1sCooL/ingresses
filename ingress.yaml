@@ -473,3 +473,32 @@ spec:
     - hosts:
         - mmalabugin.ru
       secretName: main-page-tls
+---
+# Фулфилмент для тестовых стендов (ff.89.34.219.68.sslip.io): панели нужен свой хост —
+# работать по пути внутри общего домена она не умеет. Имя разрешается в адрес сервера
+# службой sslip.io, сертификат выпускает cert-manager.
+# Манифесты приложения: deploy/k8s/app.yaml в репозитории фулфилмента.
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: fulfillment
+  namespace: fulfillment
+  annotations:
+    kubernetes.io/ingress.class: "traefik"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+spec:
+  rules:
+    - host: ff.89.34.219.68.sslip.io
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: fulfillment
+                port:
+                  number: 3000
+  tls:
+    - hosts:
+        - ff.89.34.219.68.sslip.io
+      secretName: fulfillment-tls
