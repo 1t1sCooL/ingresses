@@ -381,6 +381,8 @@ spec:
                   number: 80
 
           # Lavka (mmalabugin.ru/lavka): отдельный Ingress в ns lavka — ingress-mmalabugin.yaml
+          # Тестовая доставка (mmalabugin.ru/delivery-sandbox): отдельный Ingress в ns
+          # delivery-sandbox — в конце этого файла
 
           # Filmograph: фронт (Next.js) и API (FastAPI) — разные сервисы
           - path: /filmograph
@@ -440,6 +442,33 @@ spec:
                 port:
                   number: 80
 
+  tls:
+    - hosts:
+        - mmalabugin.ru
+      secretName: main-page-tls
+---
+# Тестовая доставка (mmalabugin.ru/delivery-sandbox): сервис живёт в своём namespace, поэтому
+# Ingress отдельный. Префикс не срезается — сервис сам знает свой BASE_PATH.
+# Исходники и манифесты приложения: https://github.com/1t1sCooL/delivery-sandbox
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: delivery-sandbox
+  namespace: delivery-sandbox
+  annotations:
+    kubernetes.io/ingress.class: "traefik"
+spec:
+  rules:
+    - host: mmalabugin.ru
+      http:
+        paths:
+          - path: /delivery-sandbox
+            pathType: Prefix
+            backend:
+              service:
+                name: delivery-sandbox
+                port:
+                  number: 3000
   tls:
     - hosts:
         - mmalabugin.ru
