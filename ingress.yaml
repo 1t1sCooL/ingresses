@@ -380,6 +380,14 @@ spec:
                 port:
                   number: 80
 
+          - path: /NewsletterSignUp
+            pathType: Prefix
+            backend:
+              service:
+                name: newsletter-sign-up-with-success-message-main
+                port:
+                  number: 80
+
           # Lavka (mmalabugin.ru/lavka): отдельный Ingress в ns lavka — ingress-mmalabugin.yaml
           # Тестовая доставка (mmalabugin.ru/delivery-sandbox): отдельный Ingress в ns
           # delivery-sandbox — в конце этого файла
